@@ -22,7 +22,7 @@
     "age": 2,
     "location": "Khulna",
     "description": "Premium Black Bengal goat, very popular for meat quality.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/hxqDt7Gn/black-goat.png",
     "category": "Small Animal"
   },
   {
@@ -35,7 +35,7 @@
     "age": 4,
     "location": "Sirajganj",
     "description": "High milk-producing Murrah buffalo, healthy and strong.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/prZ9t9FT/murrah-buffalo.jpg",
     "category": "Large Animal"
   },
   {
@@ -48,7 +48,7 @@
     "age": 2,
     "location": "Rajshahi",
     "description": "Healthy deshi sheep suitable for meat production.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/8DfRxZcn/deshi-sheep.jpg",
     "category": "Small Animal"
   },
   {
@@ -61,7 +61,7 @@
     "age": 5,
     "location": "Dhaka",
     "description": "Imported Arabian camel, strong and well trained.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/7Jf3KRz1/arabian-camel.jpg",
     "category": "Large Animal"
   },
   {
@@ -74,7 +74,7 @@
     "age": 1,
     "location": "Comilla",
     "description": "Organic deshi chicken raised in natural environment.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/qLZTLVxS/deshi-chicken.jpg",
     "category": "Poultry"
   },
   {
@@ -87,7 +87,7 @@
     "age": 4,
     "location": "Mymensingh",
     "description": "High milk producing exotic dairy cow.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/jZ5CJ2RL/australian-cow.jpg",
     "category": "Large Animal"
   },
   {
@@ -100,7 +100,7 @@
     "age": 3,
     "location": "Jessore",
     "description": "Fast growing Boer goat, ideal for meat farming.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/mrFbDPRx/boer-goat.jpg",
     "category": "Small Animal"
   },
   {
@@ -113,7 +113,7 @@
     "age": 1,
     "location": "Dhaka",
     "description": "Beautiful white pigeon, commonly kept as pet bird.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/1YM3TBZz/white-pigeon.jpg",
     "category": "Bird"
   },
   {
@@ -126,7 +126,7 @@
     "age": 6,
     "location": "Chattogram",
     "description": "Strong deshi horse suitable for riding and transport.",
-    "image": "https://i.ibb.co.com/sdxY6cgw/Qurbani-Bigest-Cow.jpg",
+    "image": "https://i.ibb.co.com/rRv8kvJm/deshi-horse.jpg",
     "category": "Large Animal"
   }
 ]
