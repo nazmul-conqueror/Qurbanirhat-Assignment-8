@@ -1,14 +1,24 @@
-import { Dog } from "lucide-react";
+import { Button } from "@heroui/react";
+import {  ArrowRight, Dog } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const FeaturedSection = async () => {
-  const res = await fetch(
-    "https://qurbanirhat-assignment-8.vercel.app/data.json",
-    { next: { revalidate: 60 } }
-  );
+  let featuredData = [];
 
-  const data = await res.json();
-  const featuredData = data.slice(0, 4);
+  try {
+    const res = await fetch(
+      "https://qurbanirhat-assignment-8.vercel.app/data.json",
+      { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) throw new Error("Failed to fetch");
+
+    const data = await res.json();
+    featuredData = data.slice(0, 4);
+  } catch (error) {
+    console.error(error);
+  }
 
   return (
     <section className="py-12 px-4">
@@ -41,7 +51,7 @@ const FeaturedSection = async () => {
             {/* Image */}
             <div className="relative w-full h-44">
               <Image
-                src={animal.image}
+                src={animal.image || "/fallback.jpg"}
                 alt={animal.name}
                 fill
                 className="object-cover group-hover:scale-105 transition duration-300"
@@ -57,10 +67,19 @@ const FeaturedSection = async () => {
                 ৳ {animal.price}
               </p>
             </div>
-
           </div>
         ))}
       </div>
+
+      {/* CTA Button (FIXED POSITION) */}
+      <div className="flex justify-center mt-10">
+        <Link href="/all-animals">
+          <Button className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-5 py-2 rounded-lg transition">
+            View All Animals <ArrowRight/>
+          </Button>
+        </Link>
+      </div>
+
     </section>
   );
 };
