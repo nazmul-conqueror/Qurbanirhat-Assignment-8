@@ -1,24 +1,12 @@
+import { getAllAnimals } from "@/lib/data";
 import { Button } from "@heroui/react";
 import {  ArrowRight, Dog } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const FeaturedSection = async () => {
-  let featuredData = [];
-
-  try {
-    const res = await fetch(
-      "https://qurbanirhat-assignment-8.vercel.app/data.json",
-      { next: { revalidate: 60 } }
-    );
-
-    if (!res.ok) throw new Error("Failed to fetch");
-
-    const data = await res.json();
-    featuredData = data.slice(0, 4);
-  } catch (error) {
-    console.error(error);
-  }
+ const getAnimals = await getAllAnimals()
+ const animals = getAnimals.slice(0,4)
 
   return (
     <section className="py-12 px-4">
@@ -42,7 +30,7 @@ const FeaturedSection = async () => {
 
       {/* Grid */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        {featuredData.map((animal) => (
+        {animals.map((animal) => (
           <div
             key={animal.id}
             className="group border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition bg-white"

@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { Button } from "@heroui/react";
 import { AiTwotoneShopping } from "react-icons/ai";
+import Link from "next/link";
+import { getAllAnimals } from "@/lib/data";
 
-export default function BannerPage() {
+export default async function BannerPage() {
+    const animal = await getAllAnimals()
   return (
     <section className="relative w-full min-h-[70vh] flex items-center overflow-hidden">
       
@@ -32,10 +35,10 @@ export default function BannerPage() {
             Bangladesh. Hassle-free delivery guaranteed for your Qurbani needs.
           </p>
 
-          <Button className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-5 py-2 rounded-lg transition">
+        <Link href={`/all-animals/${animal.id}`}>  <Button className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-5 py-2 rounded-lg transition">
             <AiTwotoneShopping size={20} />
             Browse All Animals
-          </Button>
+          </Button></Link>
 
         </div>
       </div>
