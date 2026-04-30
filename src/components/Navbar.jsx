@@ -17,8 +17,9 @@ const Navbar = () => {
           <Image 
             src="/hatgpt.png" 
             alt="QurbaniHaat Logo" 
-            width={40}
-            height={40}
+            width={60}
+            height={60}
+            className="h-10 w-auto object-contain"
           />
           <h2 className="font-bold text-lg">
             Qurbani<span className="text-green-600">Haat</span>
@@ -36,6 +37,10 @@ const Navbar = () => {
             <Link href="/all-animals" className="hover:text-green-600 transition">
               All Animals
             </Link>
+          </li>
+          <li className="hover:text-green-600 transition">About Us</li>
+          <li className="hover:text-green-600 transition">
+           Contact
           </li>
         </ul>
 
