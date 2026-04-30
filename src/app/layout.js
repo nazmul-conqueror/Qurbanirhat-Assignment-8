@@ -1,8 +1,8 @@
-import { Outfit } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const outfit = Outfit({
+const roboto = Roboto({
   subsets: ["latin"],
 });
 
@@ -17,11 +17,13 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${outfit.className}  h-full antialiased`}
+      className={`${roboto.className}  h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Navbar/>
-        {children}
+       <main className="container mx-auto">
+         {children}
+       </main>
         
         </body>
     </html>
