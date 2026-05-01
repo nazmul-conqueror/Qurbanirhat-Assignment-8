@@ -3,10 +3,10 @@ import React from 'react';
 
 const AuthLayout = ({children}) => {
     return (
-        <div>
+        <>
             <Navbar/>
             {children}
-        </div>
+      </>
     );
 };
 
