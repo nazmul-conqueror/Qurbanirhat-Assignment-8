@@ -1,87 +1,132 @@
-'use client'
-import { Button, Description, FieldError, Form, Input, Label, TextField,  } from '@heroui/react';
-import React from 'react';
+"use client";
+
+import { Button, Form, Input } from "@heroui/react";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 const RegisterPage = () => {
-const onSubmit =() =>{
+  const {
+    register,
+    handleSubmit,
+    formState: { errors},
+  } = useForm();
 
-}
+  const handleRegister =  (data) => {
+ const {name, email, image, password} = data;
+ console.log(name, email, image, password);
+ 
 
-    return (
-       <Form
-      className="flex  mx-auto flex-col gap-4 mt-6 p-6"
-      render={(props) => <form {...props} data-custom="foo" />}
-      onSubmit={onSubmit}
-    >
-      <TextField
-        isRequired
-        name="name"
-        type="text"
-      
-      >
-        <Label>Name</Label>
-        <Input placeholder="Enter Your Name" />
-        <FieldError />
-      </TextField>
-      <TextField
-        isRequired
-        name="image"
-        type="url"
-     
-      >
-        <Label>Image Url</Label>
-        <Input placeholder="Enter Image Url" />
-        <FieldError />
-      </TextField>
-      <TextField
-        isRequired
-        name="email"
-        type="email"
-        validate={(value) => {
-          if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-            return "Please enter a valid email address";
-          }
-          return null;
-        }}
-      >
-        <Label>Email</Label>
-        <Input placeholder="john@example.com" />
-        <FieldError />
-      </TextField>
-      <TextField
-        isRequired
-        minLength={8}
-        name="password"
-        type="password"
-        validate={(value) => {
-          if (value.length < 8) {
-            return "Password must be at least 8 characters";
-          }
-          if (!/[A-Z]/.test(value)) {
-            return "Password must contain at least one uppercase letter";
-          }
-          if (!/[0-9]/.test(value)) {
-            return "Password must contain at least one number";
-          }
-          return null;
-        }}
-      >
-        <Label>Password</Label>
-        <Input placeholder="Enter your password" />
-        <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
-        <FieldError />
-      </TextField>
-      <div className="flex gap-2">
-        <Button type="submit">
-        
-          Submit
-        </Button>
-        <Button type="reset" variant="secondary">
-          Reset
-        </Button>
-      </div>
-    </Form>
-    );
+
+  };
+
+  return (
+    <div className="w-full max-w-2xl mx-auto mt-10 px-4 sm:px-6 md:px-8 py-6 border rounded-2xl shadow-sm bg-white">
+      <h2 className="text-xl sm:text-2xl md:text-3xl mb-3">
+        Create Account
+      </h2>
+
+      <Form onSubmit={handleSubmit(handleRegister)} className="space-y-4 ">
+
+        {/* Name */}
+        <div>
+          <Input
+            className={"w-full"}
+            label="Name"
+            placeholder="Enter your name"
+            {...register("name", {
+              required: "Name is required",
+              minLength: {
+                value: 3,
+                message: "Name must be at least 3 characters",
+              },
+            })}
+          />
+          {errors.name && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.name.message}
+            </p>
+          )}
+        </div>
+
+        {/* Image URL */}
+        <div>
+          <Input
+            className={"w-full"}
+            label="Image URL"
+            placeholder="https://example.com/image.jpg"
+            {...register("image", {
+              required: "Image URL is required",
+              pattern: {
+                value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i,
+                message: "Enter a valid image URL",
+              },
+            })}
+          />
+          {errors.image && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.image.message}
+            </p>
+          )}
+        </div>
+
+        {/* Email */}
+        <div >
+          <Input
+          className={"w-full"}
+            label="Email"
+            type="email"
+            placeholder="john@example.com"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Invalid email address",
+              },
+            })}
+          />
+          {errors.email && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.email.message}
+            </p>
+          )}
+        </div>
+
+        {/* Password */}
+        <div>
+          <Input
+            className={"w-full"}
+            label="Password"
+            type="password"
+            placeholder="Enter password"
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
+          />
+          {errors.password && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.password.message}
+            </p>
+          )}
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-2 pt-2">
+          <Button
+            type="submit"
+            className="bg-green-600 text-white w-full"
+           
+          >
+            Register
+          </Button>
+        </div>
+
+      </Form>
+    </div>
+  );
 };
 
 export default RegisterPage;

@@ -1,65 +1,93 @@
-'use client'
-import { Button, Description, FieldError, Form, Input, Label, TextField,  } from '@heroui/react';
+"use client";
+
+import { Button, Form, Input } from "@heroui/react";
+import React from "react";
+import { useForm } from "react-hook-form";
+
 const LoginPage = () => {
-const onSubmit = () =>{
+  const {
+    register,
+    handleSubmit,
+ 
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-}
+  const handleLogin =  (data) => {
+ 
+  };
 
-    return (
-       <Form
-      className="flex w-96 flex-col gap-4 mt-7 mx-auto"
-      render={(props) => <form {...props} data-custom="foo" />}
-      onSubmit={onSubmit}
-    >
-      <TextField
-        isRequired
-        name="email"
-        type="email"
-        validate={(value) => {
-          if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-            return "Please enter a valid email address";
-          }
-          return null;
-        }}
-      >
-        <Label>Email</Label>
-        <Input placeholder="john@example.com" />
-        <FieldError />
-      </TextField>
-      <TextField
-        isRequired
-        minLength={8}
-        name="password"
-        type="password"
-        validate={(value) => {
-          if (value.length < 8) {
-            return "Password must be at least 8 characters";
-          }
-          if (!/[A-Z]/.test(value)) {
-            return "Password must contain at least one uppercase letter";
-          }
-          if (!/[0-9]/.test(value)) {
-            return "Password must contain at least one number";
-          }
-          return null;
-        }}
-      >
-        <Label>Password</Label>
-        <Input placeholder="Enter your password" />
-        <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
-        <FieldError />
-      </TextField>
-      <div className="flex gap-2">
-        <Button type="submit">
-       
-          Submit
-        </Button>
-        <Button type="reset" variant="secondary">
-          Reset
-        </Button>
+  return (
+    <div className="mt-8 flex items-center justify-center px-4">
+      <div className="w-full max-w-2xl mx-auto py-6 sm:py-8 px-4 sm:px-6 md:px-8 border rounded-2xl shadow-sm bg-white">
+
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">
+          Welcome Back
+        </h2>
+
+        <Form onSubmit={handleSubmit(handleLogin)} className="space-y-5">
+
+          {/* Email */}
+          <div>
+            <Input
+              className="w-full"
+              label="Email"
+              type="email"
+              placeholder="john@example.com"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "Invalid email address",
+                },
+              })}
+            />
+            {errors.email && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          {/* Password */}
+          <div>
+            <Input
+              className="w-full"
+              label="Password"
+              type="password"
+              placeholder="Enter your password"
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+              })}
+            />
+            {errors.password && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-2 pt-2">
+            <Button
+              type="submit"
+              className="bg-green-600 text-white w-full"
+         
+            >
+              Login
+            </Button>
+
+          
+          </div>
+
+        </Form>
+
       </div>
-    </Form>
-    );
+    </div>
+  );
 };
 
 export default LoginPage;
