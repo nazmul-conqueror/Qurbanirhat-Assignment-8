@@ -1,23 +1,10 @@
+import { getAllAnimals } from "@/lib/data";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 
 const AllAnimals = async () => {
-  let animals = [];
-
-  try {
-    const res = await fetch(
-      "https://qurbanirhat-assignment-8.vercel.app/data.json",
-      { next: { revalidate: 60 } }
-    );
-
-    if (!res.ok) throw new Error("Failed to fetch animals");
-
-    animals = await res.json();
-  } catch (error) {
-    console.error(error);
-  }
-
+ const animals = await getAllAnimals();
   return (
     <section className="py-12 px-4">
 

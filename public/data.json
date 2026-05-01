@@ -66,15 +66,15 @@
   },
   {
     "id": 6,
-    "name":"Deshi Chicken",
+    "name":"Deshi Cow",
     "type":"Chicken",
     "breed":"Local Deshi",
-    "price": 800,
+    "price": 400000,
     "weight": 2,
     "age": 1,
     "location":"Comilla",
     "description": "Organic deshi chicken raised in natural environment.",
-    "image":"https://i.ibb.co/qLZTLVxS/deshi-chicken.jpg",
+    "image":"https://i.ibb.co.com/dwKQVKhs/deshi-cow.png",
     "category": "Poultry"
   },
   {
@@ -105,28 +105,28 @@
   },
   {
     "id": 9,
-    "name":"White Pigeon",
-    "type":"Bird",
+    "name":"White and Black",
+    "type":"Cow",
     "breed":"Domestic Pigeon",
-    "price": 1200,
+    "price": 120000,
     "weight": 0.4,
     "age": 1,
     "location":"Dhaka",
     "description":"Beautiful white pigeon, commonly kept as pet bird.",
-    "image":"https://i.ibb.co/1YM3TBZz/white-pigeon.jpg",
-    "category": "Bird"
+    "image":"https://i.ibb.co.com/dwKQVKhs/deshi-cow.png",
+    "category": "Large Animal"
   },
   {
     "id": 10,
-    "name":"Deshi Horse",
-    "type":"Horse",
+    "name":"Deshi",
+    "type":"Cow",
     "breed":"Local Deshi",
     "price":300000,
     "weight":350,
     "age":6,
     "location":"Chattogram",
     "description":"Strong deshi horse suitable for riding and transport.",
-    "image":"https://i.ibb.co/rRv8kvJm/deshi-horse.jpg",
+    "image":"https://i.ibb.co.com/0RF8XXkk/big-cow.png",
     "category": "Large Animal"
   }
 ]
