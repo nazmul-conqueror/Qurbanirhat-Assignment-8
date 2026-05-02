@@ -5,6 +5,7 @@ import { Button, Form, Input } from "@heroui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "sonner";
 
 const RegisterPage = () => {
     const {
@@ -28,10 +29,10 @@ const RegisterPage = () => {
 
         })
         if (error) {
-            alert(error.message)
+            toast.warning(error.message)
         }
         if (res) {
-            alert("signUp Successful")
+            toast.success("signUp Successful")
         }
 
 

@@ -46,18 +46,17 @@ const Navbar = () => {
 
                 {/* Desktop Auth */}
                 <div className="hidden md:flex items-center gap-3">
-                    {isPending ? <div className="flex flex-col items-center gap-2">
-                        <Spinner color="success" />
-                        <span className="text-xs text-muted">Success</span>
+                    {isPending ? <div className="flex items-center gap-4">
+                        <Spinner />
                     </div> : user ? (
                         <><h2>{user.name}</h2>
-                        <Image
-                        src={user.image || "/fallback.jpg"}
-                        alt={user.name || "User"}
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                        />
+                            <Image
+                                src={user.image || "/fallback.jpg"}
+                                alt={user.name || "User"}
+                                width={40}
+                                height={40}
+                                className="rounded-full"
+                            />
                             <Button onClick={handleLogout} variant="danger-soft">
                                 Logout
                             </Button>
