@@ -1,19 +1,21 @@
 import Image from "next/image";
 import { getAllAnimals } from "@/lib/data";
 import Link from "next/link";
+import BookingForm from "@/components/BookingModal";
+import BookingModal from "@/components/BookingModal";
 
 
 const AnimalDetails = async ({ params }) => {
   // 2. Await params for Next.js 15+ compatibility
   const { id } = await params;
 
-const animals = await getAllAnimals()
+  const animals = await getAllAnimals()
 
   // 3. Find the animal
- const animal = animals.find(
+  const animal = animals.find(
     (item) => String(item.id) === String(id)
   );
-console.log(animal);
+  console.log(animal);
 
   return (
     <section className="max-w-5xl mx-auto px-4 py-12">
@@ -64,10 +66,13 @@ console.log(animal);
               "{animal.description}"
             </p>
           </div>
+          <div className="flex flex-col md:flex-row gap-4 mt-4">
+            <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold px-10 py-4 rounded-xl shadow-lg">
+              Contact Seller
+            </button>
 
-          <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold px-10 py-4 rounded-xl shadow-lg transition-all active:scale-95">
-            Contact Seller
-          </button>
+            <BookingModal animalName={animal.name} />
+          </div>
         </div>
       </div>
     </section>
