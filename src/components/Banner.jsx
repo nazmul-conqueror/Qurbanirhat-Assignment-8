@@ -35,7 +35,7 @@ export default async function BannerPage() {
             Bangladesh. Hassle-free delivery guaranteed for your Qurbani needs.
           </p>
 
-        <Link href={`/all-animals/${animal.id}`}>  <Button className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-5 py-2 rounded-lg transition">
+        <Link href={"/all-animals"}>  <Button className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-5 py-2 rounded-lg transition">
             <AiTwotoneShopping size={20} />
             Browse All Animals
           </Button></Link>

@@ -29,8 +29,8 @@ const AnimalDetails = async ({ params }) => {
         {/* Image */}
         <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border shadow-sm">
           <Image
-            src={animal.image || "/fallback.jpg"}
-            alt={"name"}
+            src={animal.image}
+            alt={animal.name}
             fill
             priority
             className="object-cover"
@@ -41,7 +41,7 @@ const AnimalDetails = async ({ params }) => {
         <div className="space-y-6">
           <div>
             <h1 className="text-4xl font-bold text-gray-900">
-              {animal.name}
+              {animal?.name}
             </h1>
             <p className="text-lg text-gray-500 mt-1">
               {animal.type} • {animal.breed}

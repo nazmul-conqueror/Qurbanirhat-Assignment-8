@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Spinner } from "@heroui/react";
+import { Avatar, Button, Spinner } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +16,12 @@ const Navbar = () => {
     const user = session?.user
     console.log(user);
 
+    const router = useRouter();
 
     const handleLogout = async () => {
         await authClient.signOut();
+          toast.success("Logged out successfully 👋");
+        router.replace("/")
     };
 
     return (
@@ -50,37 +56,42 @@ const Navbar = () => {
                         <Spinner />
                     </div> : user ? (
                         <><h2>{user.name}</h2>
-                            <Image
-                                src={user.image || "/fallback.jpg"}
-                                alt={user.name || "User"}
-                                width={40}
-                                height={40}
-                                className="rounded-full"
-                            />
-                            <Button onClick={handleLogout} variant="danger-soft">
-                                Logout
-                            </Button>
+                         
+                          <Link href={`/profile`}>
+                            <Avatar>
+                                <Avatar.Image
+                                 alt="John Doe" src={user?.image} 
+                                 referrerPolicy="no-referrer"
+                                 />
+                                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                            </Avatar>
+                          </Link>
+                        
 
-                        </>
-                    ) : (
-                        <>
-                            <Link href="/register">
-                                <Button variant="light">Register</Button>
-                            </Link>
-                            <Link href="/login">
-                                <Button color="primary">Login</Button>
-                            </Link>
-                        </>
+                                <Button onClick={handleLogout} variant="danger-soft">
+                                    Logout
+                                </Button>
+
+                            </>
+                            ) : (
+                            <>
+                                <Link href="/register">
+                                    <Button variant="light">Register</Button>
+                                </Link>
+                                <Link href="/login">
+                                    <Button color="primary">Login</Button>
+                                </Link>
+                            </>
                     )}
-                </div>
+                        </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-2xl"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? "✕" : "☰"}
-                </button>
+                    {/* Mobile Toggle */}
+                    <button
+                        className="md:hidden text-2xl"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? "✕" : "☰"}
+                    </button>
             </nav>
 
             {/* Mobile Menu */}
@@ -106,14 +117,14 @@ const Navbar = () => {
                         <div className="flex flex-col items-center gap-3">
                             <p>Hello, {user?.name}</p>
                             <Image
-                                src={user.image || "/fallback.jpg"}
+                                src={user.image}
                                 alt={user.name || "User"}
                                 width={50}
                                 height={50}
                                 className="rounded-full"
                             />
 
-                            <Button onClick={handleLogout} fullWidth variant="danger-soft">
+                         <Button onClick={handleLogout} fullWidth variant="danger-soft">
                                 Logout
                             </Button>
                         </div>

@@ -42,7 +42,7 @@ const AnimalsClient = ({ animals }) => {
           >
             <div className="relative w-full h-44">
               <Image
-                src={animal.image || "/fallback.jpg"}
+                src={animal.image}
                 alt={animal.name}
                 fill
                 className="object-cover"
