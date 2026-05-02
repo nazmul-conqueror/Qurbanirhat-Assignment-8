@@ -3,7 +3,7 @@ dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "sonner";
+
 
 
 const roboto = Roboto({
@@ -25,10 +25,8 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
      
-       
          {children}
-      
-      <Toaster/>
+
         </body>
     </html>
   );

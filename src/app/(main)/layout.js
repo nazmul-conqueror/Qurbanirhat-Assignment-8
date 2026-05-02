@@ -2,6 +2,7 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import React from 'react';
+import { Toaster } from 'sonner';
 
 
 const MainLayout = ({children}) => {
@@ -10,7 +11,7 @@ const MainLayout = ({children}) => {
        <Navbar/>
      
        <main className='container mx-auto grow'>{children}</main>
-       
+       <Toaster/>
       <Footer/>
        </>
     );
