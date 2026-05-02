@@ -3,7 +3,7 @@ export const getAllAnimals = async () => {
     const res = await fetch(
       "https://qurbanirhat-assignment-8.vercel.app/data.json",
       {
-        next: { revalidate: 1 },
+        next: { revalidate: 20 },
       }
     );
 

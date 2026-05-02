@@ -5,7 +5,7 @@ import { Button, Form, Input } from "@heroui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 
 const RegisterPage = () => {
@@ -35,13 +35,16 @@ const RegisterPage = () => {
         if (res) {
             toast.success("signUp Successful")
         }
-
-
-
-
-
-
     };
+
+const handleGoogleSignIn = async() =>{
+     const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data);
+  
+}
+
 
     return (
         <div className="w-full max-w-2xl mx-auto mt-10 px-4 sm:px-6 md:px-8 py-6 border rounded-2xl shadow-sm bg-white">
@@ -143,7 +146,9 @@ const RegisterPage = () => {
                     >
                         Register
                     </Button>
+                   
                 </div>
+                        <Button onClick={handleGoogleSignIn} className={"w-full"} variant="outline"><FaGoogle/>Login with Google</Button>
 
             </Form>
         </div>
