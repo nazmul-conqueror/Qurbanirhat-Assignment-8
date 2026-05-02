@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getAllAnimals } from "@/lib/data";
 import Link from "next/link";
-import BookingForm from "@/components/BookingModal";
 import BookingModal from "@/components/BookingModal";
 
 

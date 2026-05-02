@@ -4,8 +4,9 @@ import { authClient } from "@/lib/auth-client";
 import { Button, Form, Input } from "@heroui/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { toast } from "sonner";
+
 
 const RegisterPage = () => {
     const {
@@ -29,7 +30,7 @@ const RegisterPage = () => {
 
         })
         if (error) {
-            toast.warning(error.message)
+            toast.error(error.message)
         }
         if (res) {
             toast.success("signUp Successful")
