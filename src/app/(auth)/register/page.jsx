@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Form, Input } from "@heroui/react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -47,7 +48,7 @@ const handleGoogleSignIn = async() =>{
 
 
     return (
-        <div className="w-full max-w-2xl mx-auto mt-10 px-4 sm:px-6 md:px-8 py-6 border rounded-2xl shadow-sm bg-white">
+        <div className="w-full max-w-2xl mx-auto mt-10 px-4 sm:px-6 md:px-8 py-6 border rounded-2xl shadow-sm bg-white animate__animated animate__fadeInDown">
             <h2 className="text-xl sm:text-2xl md:text-3xl mb-3">
                 Create Account
             </h2>
@@ -151,6 +152,7 @@ const handleGoogleSignIn = async() =>{
                         <Button onClick={handleGoogleSignIn} className={"w-full"} variant="outline"><FaGoogle/>Login with Google</Button>
 
             </Form>
+         
         </div>
     );
 };

@@ -34,11 +34,11 @@ const AnimalsClient = ({ animals }) => {
       </div>
 
       {/* Grid */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto ">
         {sortedAnimals.map((animal) => (
           <div
             key={animal.id}
-            className="border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition bg-white"
+            className="border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition bg-white  animate__animated animate__fadeInUp"
           >
             <div className="relative w-full h-44">
               <Image
