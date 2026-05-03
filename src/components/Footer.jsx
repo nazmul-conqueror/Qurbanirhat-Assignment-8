@@ -8,13 +8,13 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-300 mt-10">
       <div className="max-w-7xl mx-auto px-4 py-10 grid  grid-cols-1 md:grid-cols-3 gap-8">
 
-        {/* About Section */}
+        {/* About  section */}
         <div>
           <h2 className="text-xl font-bold text-white mb-3">
             Qurbani<span className="text-green-500">Haat</span>
           </h2>
           <p className="text-sm leading-relaxed">
-            QurbaniHaat is a trusted online marketplace for buying and selling
+            QurbaniHaat is A trusted online marketplace for buying and selling
             cows and goats for Eid-ul-Adha. We connect farmers and buyers in a
             safe, reliable, and halal way.
           </p>

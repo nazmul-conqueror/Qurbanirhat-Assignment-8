@@ -5,12 +5,12 @@ import BookingModal from "@/components/BookingModal";
 
 
 const AnimalDetails = async ({ params }) => {
-  // 2. Await params for Next.js 15+ compatibility
+ 
   const { id } = await params;
 
   const animals = await getAllAnimals()
 
-  // 3. Find the animal
+  
   const animal = animals.find(
     (item) => String(item.id) === String(id)
   );

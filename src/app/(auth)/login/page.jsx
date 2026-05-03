@@ -2,7 +2,6 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Form, Input } from "@heroui/react";
-import { error } from "better-auth/api";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";

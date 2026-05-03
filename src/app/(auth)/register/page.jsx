@@ -2,7 +2,8 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Form, Input } from "@heroui/react";
-import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -10,6 +11,7 @@ import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 
 const RegisterPage = () => {
+    const router = useRouter()
     const {
         register,
         handleSubmit,
@@ -22,25 +24,25 @@ const RegisterPage = () => {
 
 
         const { data: res, error } = await authClient.signUp.email({
-            name: name, // required
-            email: email, // required
-            password: password, // required
+            name: name, 
+            email: email, 
+            password: password, 
             image: image,
-            callbackURL: "/",
-
-
+            callbackURL:"/",
         })
         if (error) {
             toast.error(error.message)
         }
         if (res) {
             toast.success("signUp Successful")
+            router.push("/")
         }
     };
 
 const handleGoogleSignIn = async() =>{
      const data = await authClient.signIn.social({
     provider: "google",
+       callbackURL: "/",
   });
  
   

@@ -37,12 +37,12 @@ const BookingModal = ({ animalName }) => {
       address: "",
     });
 
-    setIsOpen(false); // close modal
+    setIsOpen(false); 
   };
 
   return (
     <>
-      {/* 🔘 Button */}
+      {/*  Button */}
       <button
         onClick={() => setIsOpen(true)}
         className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold px-10 py-4 rounded-xl shadow-lg transition-all"
@@ -50,13 +50,13 @@ const BookingModal = ({ animalName }) => {
         Book Now
       </button>
 
-      {/* 🪟 Modal */}
+      {/*  Modal */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           
           <div className="bg-white rounded-xl w-full max-w-md p-6 relative animate-fadeIn">
             
-            {/* ❌ Close */}
+            {/*  Close */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-3 right-3 text-gray-500 hover:text-black"
